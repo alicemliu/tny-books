@@ -1,13 +1,19 @@
 const express = require('express');
-const { nabokov } = require('../db');
+const { get_all_books, get_book } = require('../db');
 const router = express.Router();
 
 function create_router(db) {
-  router.get('/nabokov', async (req, res) => {
-    const nabokov_books = await nabokov(db);
-    res.json(nabokov_books);
+  router.get('/books', async (req, res) => {
+    const books = await get_all_books(db);
+    res.send(books);
   });
-  
+
+  router.get('/books/:isbn', async (req, res) => {
+    const isbn = req.params.isbn;
+    const book = await get_book(db, isbn);
+    res.send(book);
+  });
+
   router.get('/', (req, res) => {
     res.send('hello, world');
   });

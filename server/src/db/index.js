@@ -25,8 +25,17 @@ async function stop_db(db) {
   });
 }
 
-async function nabokov(db) {
-  const sql = `SELECT * FROM nabokov`;
+async function get_all_books(db) {
+  const sql = 
+    `
+    SELECT
+      books.title,
+      GROUP_CONCAT(authors.author_name, ', ') AS authors
+    FROM books
+    INNER JOIN authorbooks ON books.isbn = authorbooks.isbn
+    INNER JOIN authors ON authorbooks.author_id = authors.author_id
+    GROUP BY books.isbn;
+    `;
 
   return new Promise((resolve, reject) => {
     db.all(sql, (err, rows) => {
@@ -38,8 +47,35 @@ async function nabokov(db) {
   });
 }
 
+async function get_book(db, isbn) {
+  const sql = 
+    `
+    SELECT
+      books.isbn,
+      books.title,
+      books.publisher,
+      books.publisher_city,
+      books.format,
+      authors.author_name
+    FROM books
+    INNER JOIN authorbooks ON books.isbn = authorbooks.isbn
+    INNER JOIN authors ON authorbooks.author_id = authors.author_id
+    WHERE books.isbn = $1;
+    `;
+
+  return new Promise((resolve, reject) => {
+    db.all(sql, [isbn], (err, rows) => {
+      if (err) {
+        reject(err);
+      }
+      resolve(rows);
+    })
+  });
+}
+
 module.exports = {
   start_db,
   stop_db,
-  nabokov,
+  get_all_books,
+  get_book
 }

@@ -1,6 +1,8 @@
+import Search from './search';
+
 function App() {
   return (
-    <div className="container mx-auto">hello, world</div>
+    <Search />
   );
 }
 
