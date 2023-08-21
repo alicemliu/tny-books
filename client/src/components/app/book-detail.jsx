@@ -1,6 +1,7 @@
 import { getBook } from './util';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PageNotFound from './page-not-found';
 import classNames from 'classnames';
 
 const Title = ({title}) => {
@@ -47,15 +48,17 @@ const BookDetail = () => {
     );
 
     return (
-        <div className={cardClasses}>
-            <Title title={book?.title} />
-            <Field label={'AUTHOR'} val={book?.authors} />
-            <Field label={'PUBLISHER'} val={book?.publisher} />
-            <Field label={'CITY'} val={book?.publisher_city} />
-            <Field label={'FORMAT'} val={book?.format} />
-            <Field label={'YEAR'} val={book?.year_published} />
-            <Field label={'ISBN'} val={book?.isbn} />
-        </div>
+        book?.title
+            ? <div className={cardClasses}>
+                <Title title={book?.title} />
+                <Field label={'AUTHOR'} val={book?.authors} />
+                <Field label={'PUBLISHER'} val={book?.publisher} />
+                <Field label={'CITY'} val={book?.publisher_city} />
+                <Field label={'FORMAT'} val={book?.format} />
+                <Field label={'YEAR'} val={book?.year_published} />
+                <Field label={'ISBN'} val={book?.isbn} />
+            </div>
+            : <PageNotFound />
     );
 }
 
