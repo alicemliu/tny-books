@@ -31,6 +31,8 @@ async function get_all_books(db) {
     SELECT
       books.title,
       books.isbn,
+      books.year_published,
+      books.genre,
       GROUP_CONCAT(authors.author_name, ', ') AS authors
     FROM books
     INNER JOIN authorbooks ON books.isbn = authorbooks.isbn
@@ -57,6 +59,7 @@ async function get_book(db, isbn) {
       books.publisher,
       books.publisher_city,
       books.format,
+      books.genre,
       GROUP_CONCAT(authors.author_name, ', ') AS authors
     FROM books
     INNER JOIN authorbooks ON books.isbn = authorbooks.isbn

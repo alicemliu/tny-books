@@ -14,11 +14,13 @@ const Search = () => {
 
     return (
         <div>
-            { books.map((b) => 
+            { books?.map((b) => 
                 <BookCard
-                    title={b.title}
-                    authors={b.authors}
-                    isbn={b.isbn}
+                    title={b?.title}
+                    authors={b?.authors}
+                    year={b?.year_published}
+                    isbn={b?.isbn}
+                    genre={b?.genre}
                 />
             )}
         </div>
