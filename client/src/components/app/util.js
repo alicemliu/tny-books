@@ -17,3 +17,17 @@ export const getAllBooks = async () => {
       console.error('network error');
     }
 }
+
+export const getBook = async (isbn) => {
+  const url = `${baseUrl}/books/${isbn}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error();
+    }
+    const data = await response.json();
+    return data[0];
+  } catch (error) {
+    console.error('network error');
+  }
+}

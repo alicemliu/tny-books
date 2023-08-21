@@ -1,5 +1,6 @@
 import { getAllBooks } from './util';
 import { useEffect, useState } from 'react';
+import BookCard from './book-card';
 
 const Search = () => {
     const [books, setBooks] = useState([]);
@@ -14,7 +15,11 @@ const Search = () => {
     return (
         <div>
             { books.map((b) => 
-                <p>{b.title}</p>
+                <BookCard
+                    title={b.title}
+                    authors={b.authors}
+                    isbn={b.isbn}
+                />
             )}
         </div>
     );
