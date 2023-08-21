@@ -37,7 +37,7 @@ const BookDetail = () => {
     }, [isbn]);
 
     const cardClasses = classNames(
-        'mx-5 my-2',
+        'my-2',
         'border-l-2',
         'bg-inherit',
         'overflow-hidden',

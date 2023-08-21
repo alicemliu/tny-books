@@ -11,7 +11,7 @@ const BookCard = ({
     const isFiction = genre === 'fiction';
 
     const cardClasses = classNames(
-        'mx-5 my-2',
+        'my-4',
         'h-20',
         'border-t-2',
         'bg-inherit',
@@ -23,7 +23,7 @@ const BookCard = ({
     );
 
     return (
-        <Link to={`/book/${isbn}`}>
+        <Link to={`/books/${isbn}`}>
             <div className={cardClasses}>
                 <h2 className={'text-4xl my-1 text-overflow'}>
                     {title}

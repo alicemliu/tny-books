@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<Search />} />
-        <Route path="/book/:isbn" element={<BookDetail />} />
+        <Route path="/books/:isbn" element={<BookDetail />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>
