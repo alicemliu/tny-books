@@ -59,6 +59,7 @@ async function get_book(db, isbn) {
       books.publisher,
       books.publisher_city,
       books.format,
+      books.year_published,
       books.genre,
       GROUP_CONCAT(authors.author_name, ', ') AS authors
     FROM books

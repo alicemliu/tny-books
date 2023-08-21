@@ -7,7 +7,7 @@ const Title = ({title}) => {
     return (
         <div className={'mb-4'}>
             <h2 className={'font-normal'}>TITLE</h2>
-            <p className={'text-4xl'}>
+            <p className={'text-4xl text-overflow'}>
                 {title}
             </p>
         </div>
@@ -18,7 +18,7 @@ const Field = ({label, val}) => {
     return (
         <div className={'mb-4'}>
             <h2 className={'font-normal'}>{label}</h2>
-            <p className={'text-lg'}>{val}</p>
+            <p className={'text-lg text-overflow'}>{val}</p>
         </div>
     );
 }
@@ -33,7 +33,7 @@ const BookDetail = () => {
             const res = await getBook(isbn);
             setBook(res);
         })();
-    }, []);
+    }, [isbn]);
 
     const cardClasses = classNames(
         'mx-5 my-2',

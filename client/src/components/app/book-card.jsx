@@ -25,11 +25,11 @@ const BookCard = ({
     return (
         <Link to={`/book/${isbn}`}>
             <div className={cardClasses}>
-                <h2 className={'text-4xl my-1'}>
+                <h2 className={'text-4xl my-1 text-overflow'}>
                     {title}
                 </h2>
                 <div className={'text-xs flow-root font-normal'}>
-                    <p className={'float-left'}>
+                    <p className={'float-left text-overflow'}>
                         {authors}
                     </p>
                     <p className={'float-right'}>
