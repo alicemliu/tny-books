@@ -27,3 +27,10 @@ npm run start:client
 ```
 
 The server should be accessible at [http://localhost:3001](http://localhost:3001) and the client should be accessible at [http://localhost:3000](http://localhost:3000).
+
+### Running Tests
+
+To run client unit tests:
+```
+npm run test:client
+```
