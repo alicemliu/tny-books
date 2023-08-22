@@ -18,7 +18,7 @@ const Search = () => {
         setSearchBar(event.target.value);
     };
 
-    const filteredBooks = books.filter((b) =>
+    const filteredBooks = books?.filter((b) =>
         b?.title.toLowerCase().includes(searchBar.toLowerCase()) ||
         b?.authors.toLowerCase().includes(searchBar.toLowerCase())
     );

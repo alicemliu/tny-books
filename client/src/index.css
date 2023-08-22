@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  margin: 2rem;
+  margin: 2em;
   font-weight: 500;
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
