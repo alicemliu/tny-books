@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate
+} from 'react-router-dom';
 import BookDetail from './book-detail';
 import Header from './header';
 import PageNotFound from './page-not-found'
@@ -10,7 +15,8 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route exact path="/" element={<Search />} />
+        <Route exact path="/" element={<Navigate replace to="/books" />} />
+        <Route path="/books" element={<Search />} />
         <Route path="/books/:isbn" element={<BookDetail />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
